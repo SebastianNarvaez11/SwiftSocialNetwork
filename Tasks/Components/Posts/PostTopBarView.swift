@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct PostTopBarView: View {
+    
+    let name:String
+    let image:String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Label(
+                title: {
+                    Text(name)
+                        .bold()
+                    .foregroundStyle(.white)},
+                icon: {
+                    Image(image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                    
+                })
+            
+            Spacer()
+            
+            Image(systemName: "ellipsis").foregroundStyle(.white)
+            
+        }
+        .padding(.horizontal , 20)
+        .frame(width: UIScreen.main.bounds.width)
     }
 }
 
 #Preview {
-    PostTopBarView()
+    PostTopBarView(name: "test", image: "women")
 }

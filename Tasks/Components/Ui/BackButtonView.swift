@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct BackButtonView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+    @Environment(\.presentationMode) var presentationMode
+
+       var body: some View {
+           Button(action: {
+               presentationMode.wrappedValue.dismiss()
+           }) {
+               Image(systemName: "chevron.left")
+                   .foregroundColor(.customLabel)
+           }
+       }
 }
 
 #Preview {

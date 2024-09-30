@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct LikeUserPreviewView: View {
+    
+    let image:String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(image)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 35, height: 35)
+            .clipShape(Circle())
+            .overlay(
+                Circle()
+                    .stroke(lineWidth: 3)
+                    .foregroundStyle(.white)
+            )
     }
 }
 
 #Preview {
-    LikeUserPreviewView()
+    LikeUserPreviewView(image: "women")
 }

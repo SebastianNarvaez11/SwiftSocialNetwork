@@ -12,12 +12,12 @@ struct CreateStoryButtonView: View {
         VStack(spacing:15){
             Button(action: {}, label: {
                 Image(systemName: "plus")
-                    .foregroundStyle(.white)
-                    .frame(width: 60, height: 60)
+                    .foregroundStyle(.foreground)
+                    .frame(width: 63, height: 63)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(lineWidth:2)
-                            .tint(.white)
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(lineWidth:3)
+                            .tint(.customLabel)
                             .frame(width: 70, height: 70)
                     )
             })

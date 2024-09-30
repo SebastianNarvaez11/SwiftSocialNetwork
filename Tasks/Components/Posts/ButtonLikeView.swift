@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct ButtonLikeView: View {
+    
+    @Binding var isPressed:Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: { isPressed.toggle() }, label: {
+            Label(
+                title: {
+                    Text("7,8k")
+                        .bold()
+                        .font(.callout)
+                        .foregroundStyle(.white)
+                },
+                icon:{
+                    Image(systemName: "heart.fill")
+                        .font(.title3)
+                        .foregroundStyle(.white)
+                        .scaleEffect(isPressed ? 1.5 : 1)
+                })
+            .padding()
+            .background(isPressed ? .red : .clear)
+            .background(.ultraThinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 25))
+            .animation(.bouncy, value: isPressed)
+        })
     }
 }
 
 #Preview {
-    ButtonLikeView()
+    ButtonLikeView(isPressed: .constant(false))
 }
